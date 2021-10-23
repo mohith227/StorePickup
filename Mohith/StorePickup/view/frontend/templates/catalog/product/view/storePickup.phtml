@@ -1,0 +1,39 @@
+<?php
+$viewModel = $block->getViewModel();
+$sourcesDetails = $viewModel->getSourcesDetails();
+
+?>
+<?php if ($sourcesDetails): ?>
+    <?php foreach ($sourcesDetails as $source) : ?>
+        <button type="button" class="btn btn-primary btn-lg" id="popupButton" data-toggle="modal"
+                data-target="#storePickup"><?php echo __('PICK UP IN STORE') ?></button>
+        <!-- Modal -->
+        <div class="modal fade" id="storePickup" role="dialog" style="display:none;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><?php echo __('Store Availability') ?></h4>
+                    </div>
+                    <div class="modal-body">
+                            <button type="submit" class="btn btn-default">
+                                <?php echo __('PICKUP IN STORE') ?></button>
+                            <?php echo __('Already items to collect in shop'); ?>
+                            <div class="form-group">
+                                <label for="requirement">
+                                    <?php echo __('Address') ?> :</label>
+                                <?php echo $source->getFrontendDescription(); ?>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+<script>
+    require(['jquery', 'Mohith_StorePickup/js/storepickup-component'],
+        function ($) {
+            return;
+        }
+    );
+</script>

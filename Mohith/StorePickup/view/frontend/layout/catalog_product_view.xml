@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.form.content">
+            <block name="product.info.post.requirements"
+                   template="Mohith_StorePickup::catalog/product/view/storePickup.phtml"
+                   before="product.info.addtocart">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Mohith\StorePickup\ViewModel\ProductData</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
